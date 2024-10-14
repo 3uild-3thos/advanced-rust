@@ -10,13 +10,11 @@ Welcome to Turbin3's Advanced Rust program. This program aims to facilite your g
 
 The course will run for a duration of **5 weeks** in total. The course is structured as follows:
 
-\
-1. Building a vault
-
 1. Native Rust Vault
 2. Native Rust Escrow
 3. Native Rust AMM
 4. Writing our own frameworks and libraries
+5. Extreme optimization
 
 #### Week 1 - Native Rust Vault
 
