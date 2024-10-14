@@ -26,8 +26,9 @@ Course structure and key competencies are as follows:
    3. Optimizing an AMM
 4. Writing our own frameworks and libraries
    1. 
+   2. Inline assembly
 5. Extreme optimization
-   1. Assembly
+   1. Writing a custom entrypoWriting a vault in assembly
 
 #### Week 1 - Native Rust Vault
 
