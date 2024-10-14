@@ -154,11 +154,48 @@ This is because attempting to modify memory that your program doesn't own will c
 
 ### 4. Signer Checks
 
-When dealing with the concept of permissions in our programs, we typically rely upon cryptogrpahic proofs of identity. While Soalana supports several cryptographic signature schemes, such as Ecdsa, Schnorr or RSA, the most common way of handling this is to simply use the signer constraint on an account.
+When dealing with the concept of permissions in our programs, we typically rely upon cryptogrpahic proofs of identity. While Soalana supports several cryptographic signature schemes, such as ECDSA, Schnorr or RSA, the most common way of handling this is to simply use the signer constraint on an account.
+
+If we fail to do Signer checks, it e
 
 #### Anchor Example
 
-In anchor
+In anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID of your own program as declared in `lib.rs`, or alternatively the Program ID of any program you are importing via `Cargo.toml`.
+
+```rs
+#[derive(Accounts)]
+struct Transfer<'info> {
+    escrow: Account<'info, Escrow>
+}
+```
+
+In this example:
+
+- `Account<T>` ensures type `T` implements has the correct `owner` and `discriminator`, then deserializes the account data
+- `Token` implements the `Owner` and `AccountDeserialize` traits, enabling the `Account<T>` checks to work
+
+#### Native Rust Example
+
+In Native Rust, we might handle these checks in the body of our instruction like so:
+
+```rs
+// Create an account discriminator for Escrow type
+const ESCROW_DISCRIMINATOR: u8 = 1;
+
+// Split the discriminator out from account data
+let (discriminator, data) = escrow.data.borrow()
+	.split_first()
+	.ok_or(ProgramError::InvalidInstructionData)?;
+
+// Check the discriminator
+assert_eq!(&ESCROW_DISCRIMINATOR, discriminator);
+
+// Ensure the Escrow account is owned by the current program
+assert_eq!(&crate::ID, &escrow.owner);
+
+// Deserialize data into Escrow struct
+let escrow_data = Escrow::try_unpack(data)?;
+```
 
 ```rs
 assert!(maker.is_signer);
