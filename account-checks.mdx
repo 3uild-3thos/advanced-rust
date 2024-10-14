@@ -106,7 +106,7 @@ By knowing that the account is created by the correct program, and that the data
 
 #### Anchor Example
 
-In anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). This takes in a generic type that implements the `Owner` trait which is typically automatically inherited from `crate::ID` Below is an example using it in conjunction with the `Token` program type:
+In anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). This takes in a generic type that implements the `Owner` trait which is typically automatically set to `crate::ID` from the which will automatically use your elow is an example using it in conjunction with the `Token` program type:
 
 ```rs
 #[derive(Accounts)]
