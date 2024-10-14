@@ -149,7 +149,7 @@ let escrow_data = Escrow::try_unpack(data)?;
 
 #### 3.2 Uninitialized Accounts
 
-U
+In Anchor, these checks would automatically be performed by simply adding the `init` constraint to the account struct, like so:
 
 When initializing new accounts, the checks we need to perform are actually quite different. 
 
