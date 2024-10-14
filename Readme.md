@@ -27,6 +27,7 @@ Course structure and key competencies are as follows:
 4. Writing our own frameworks and libraries
    1. 
 5. Extreme optimization
+   1. Assembly
 
 #### Week 1 - Native Rust Vault
 
