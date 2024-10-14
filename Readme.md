@@ -23,7 +23,7 @@ Course structure and key competencies are as follows:
 3. AMM
    1. Native Rust AMM Programs (1/2)
    2. Native Rust AMM Program (2/2)
-   3. Optimizing an AMM
+   3. Optimizing and benchmaking an AMM
 4. Unsafe Rust and Non-standard libraries
    1. Introduction to unsafe Rust
    2. Replacing Solana-Program
