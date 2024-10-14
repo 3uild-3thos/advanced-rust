@@ -40,11 +40,11 @@ assert!(&token_program.executable);
 assert_eq!(&spl_token::ID, &token_program.key);
 ```
 
-##### Optimizations
+#### Optimizations
 
 When the desired Program ID is known, it is generally possible to omit the executable check, as having the correct Program ID already enables us to know that it is executable. There are also runtime errors that will occur when attempting to execute instructions against a non-executable account.
 
-#### 2. Sysvar Checks 
+### 2. Sysvar Checks 
 
 When using Sysvar accounts, we need to check that they:
 
@@ -89,9 +89,9 @@ Relying upon the syscall enables us to be sure that we have closed off all possi
 
 **Extreme Optimizations**
 
-Contrarily, when prioritizing for peak performance, if your instruction is not constrained by the number of accounts it takes in, it is actually preferable to pass in Sysvar accounts instead of invoking the Sysvar syscalls to save CUs. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for `~10CUs`. or so.
+Contrarily, when prioritizing for peak performance, if your instruction is not constrained by the number of accounts it takes in, it is actually preferable to pass in Sysvar accounts instead of invoking the Sysvar syscalls to save CUs. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for roughly `10CUs` or so.
 
-#### 3. Owner Checks
+### 3. Owner Checks
 
 When reading from/writing to accounts, it is important to check that the account 
 
