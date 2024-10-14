@@ -42,7 +42,7 @@ In this module, we will dive deep into:
 - Serialization and discriminators
 - Program structure  
 
-The final outcome of this week is that all students will successfully build and test their own native Rust vault program capable of depositing and withdrawing lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
+The final outcome of this week is that all students will successfully build and test their own native Rust vault program, enabling them to safely deposit and withdraw lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
 ##### Key competencies:
 
