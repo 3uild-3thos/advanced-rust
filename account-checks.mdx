@@ -152,11 +152,21 @@ let escrow_data = Escrow::try_unpack(data)?;
 Uninitialized accounts require us to cehck that the account is not already initialized. This means checking that the account:
 
 1. `owner` is the `System Program`
-2. data is un
+2. `data` is uninitialized
 
 #### Anchor
 
 In Anchor, these checks would automatically be performed by simply adding the `init` constraint to the account struct, like so:
+
+```rs
+#[derive(Accounts)]
+struct Transfer<'info> {
+	#[account(
+		init,
+
+    escrow: Account<'info, Escrow>
+}
+```
 
 When initializing new accounts, the checks we need to perform are actually quite different. 
 
