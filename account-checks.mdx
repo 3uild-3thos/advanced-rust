@@ -155,7 +155,7 @@ This is because attempting to modify memory that your program doesn't own will c
 
 ### Initialization Checks
 
-When initializing new accounts, we need to make sure that the account is not already initialized. Naively, ma
+When initializing new accounts, we need to make sure that the account is not already initialized. Naively, we may think that checking if the account is rent excempt would work, however it is not.
 
 #### Anchor
 
