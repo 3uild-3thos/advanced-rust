@@ -117,8 +117,8 @@ struct Transfer<'info> {
 
 In this example:
 
-- `Account<T>` ensures type `T` implements \`Owner\` and `AccountDeserialize` traits, checks the `owner` and `discriminator` of the account
-- `Token` implements the `Owner` and `AccountDeserialize` is equal to `TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA`
+- `Account<T>` ensures type `T` implements has the correct `owner` and `discriminator`, then deserializes the account data
+- `Token` implements the `Owner` and `AccountDeserialize` traits, enabling the \`Account&lt;T&gt;
 
 #### Native Rust Example
 
