@@ -89,7 +89,7 @@ Relying upon the syscall enables us to be sure that we have closed off all possi
 
 **Extreme Optimizations**
 
-Contrarily, when prioritizing for peak performance, if you are not constrained by the number of accounts in your instruction, it is actually preferable to pass in Sysvar accounts instead of invoking the Sysvar syscalls to save CUs. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like nostd-, passing in the account can actually achieve the same result for `~10CUs`.
+Contrarily, when prioritizing for peak performance, if you are not constrained by the number of accounts in your instruction, it is actually preferable to pass in Sysvar accounts instead of invoking the Sysvar syscalls to save CUs. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or pinocchio, passing in the account can actually achieve the same result for `~10CUs`.
 
 #### 3. Owner Checks
 
