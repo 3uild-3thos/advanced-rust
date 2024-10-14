@@ -147,8 +147,11 @@ x
 
 #### Optimizations
 
-When you are either:\
-- Not relying upon the account for any sensite iIt is possible to skip owner checks for accounts owned by your own program when we are mutating their data or lamports, as if they do not belong to your program, the runtime will throw a privelege escalation error, causing your transaction to fail.
+When you are either:
+
+- mutating the `lamports` balance of the account without CPI
+- m\
+  It is possible to skip owner checks for accounts owned by your own program when we are mutating their data or lamports, as if they do not belong to your program, the runtime will throw a privelege escalation error, causing your transaction to fail.
 
 4. Signer Checks
 
