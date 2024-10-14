@@ -27,7 +27,7 @@ Course structure and key competencies are as follows:
 4. Unsafe Rust and Non-standard libraries
    1. Introduction to unsafe Rust
    2. Replacing Solana-Program
-   3. NoStd entrypoint and CPI (
+   3. NoStd entrypoint and CPI (Competition)
 5. Extreme optimization
    1. Writing a custom entrypoint
    2. Assembly optimization
