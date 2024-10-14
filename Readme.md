@@ -14,9 +14,9 @@ The course will run for a duration of **5 weeks** in total, and is structured ar
 
    Students will be required to make their own Native Rust vault program capable of depositing and withdrawing lamports from a program-controlled vault account via PDA signing.
 
-   1.1 - Mastering accountchecks
+   1.1 - Account checks, serializa
    1.2 - Native Rust vault program
-   1.3 - Native  Program testing in Native Rust
+   1.3 - Program testing in Native Rust
 
 2. We will be delving into
 
