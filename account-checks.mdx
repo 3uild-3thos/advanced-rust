@@ -94,13 +94,14 @@ Relying upon the syscall enables us to be sure that we have closed off all possi
 
 **Extreme Optimizations**
 
-Contrarily, when prioritizing for peak performance, if your instruction is not bound by instruction data size, it can actually be more efficient to pass in Sysvar accounts than to invoke the Sysvar syscalls. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for roughly `10CUs` or so.
+Contrarily, when prioritizing for peak performance, if your instruction is not bound by instruction data size, it can actually be more efficient to pass in Sysvar accounts than to invoke the Sysvar syscalls. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for roughly `10CUs`.
 
 ### 3. Owner Checks
 
 When reading from/writing to accounts, it is important to check that the account 
 
-a) `owner` matches the correct Program ID, and
+1. `owner` matches the correct Program ID, and
+2. 
 
 b) is of the correct type, typically handled by checking `data` length, or using an account discriminator
 
