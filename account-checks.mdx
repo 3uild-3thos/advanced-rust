@@ -159,7 +159,7 @@ When initializing new accounts, we need to make sure that the account is not alr
 
 Naively, we may initially think that checking the lamports balance of the account is non-zero would be sufficient, however as Solana allows us to send lamports to any account we want, this is unreliable, as an attacker could sabotage your program by figuring out your PDA seeds and sending lamports to uninitialized accounts. 
 
-Instead, we actually need to check the `owner` of the account the only way for a program other than the `System Program` to take ownership of the account is by PDA signing, proving it has been processed by your program logic.
+Instead, we actually need to check the `owner` of the account. This is because the only way for a program other than the `System Program` to take ownership of an account is through signing, proving that the account has either  has been processed by your program logic.
 
 #### Anchor
 
