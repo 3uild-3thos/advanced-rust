@@ -12,9 +12,9 @@ The course will run for a duration of **5 weeks** in total, and is structured ar
 
 1. Native Rust Vault
 
-   1.1 - Mastering account checks.
-   1.2 - Native Rust smart contract structure
-   1.3. How to choose a
+   1.1 - Mastering account checks
+   1.2 - Your first Native Rust vault
+   1.3 - Program testing in Native Rust
 
 2. We will be delving into
 
