@@ -24,11 +24,13 @@ Course structure and key competencies are as follows:
    1. Native Rust AMM Programs (1/2)
    2. Native Rust AMM Program (2/2)
    3. Optimizing an AMM
-4. Writing our own frameworks and libraries
-   1. 
-   2. Inline assembly
+4. Non-standard libraries
+   1. Nostd-entrypoint and Pinocchio
+   2. Optimi
+   3. Inline assembly
 5. Extreme optimization
-   1. Writing a custom entrypoWriting a vault in assembly
+   1. Writing a custom entrypoint
+   2. Writing a vault in assembly
 
 #### Week 1 - Native Rust Vault
 
