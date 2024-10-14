@@ -8,13 +8,13 @@ Welcome to Turbin3's Advanced Rust program. The outcomes of this program are tha
 
 ### Course Structure
 
-The course is structured around achieving the following :
+The course will run for a duration of **5 weeks** in total, and is structured around achieving the following competencies:
 
 1. Native Rust Vault
 
-   1. Mastering account checks.
-   2. Native Rust smart contract structure
-   3. How to choose a 
+   1.1 - Mastering account checks.
+   1.2 - Native Rust smart contract structure
+   1.3. How to choose a
 
 2. We will be delving into
 
@@ -24,4 +24,4 @@ In the Smart Contracts portion of the course, we will be aiming to achieve the f
 
 1.1 - Create a secure Native Rust vault program.
 
-1.2 - 
+1.2 -
