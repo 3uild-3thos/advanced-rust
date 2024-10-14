@@ -35,7 +35,11 @@ Course structure and key competencies are as follows:
 
 ### Week 1 - Native Rust Vault
 
-In this module, students will dive deep into account checks, native Rust program security, choosing serialization and discriminator be required to make their own native Rust vault program capable of depositing and withdrawing lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
+In this module, students will dive deep into:
+
+- mastering account checks
+- native Rust program security
+- serialization and discriminators,  required to make their own native Rust vault program capable of depositing and withdrawing lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
 ##### Key competencies:
 
