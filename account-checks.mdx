@@ -98,10 +98,6 @@ Contrarily, when prioritizing for peak performance, if your instruction is not b
 
 ### Owner Checks
 
-There are two types of owner checks we should perform depending upon whether an account is already initialized or not.
-
-#### 3.1 Initialized Accounts
-
 When reading from/writing to existing accounts, it is important to check that the account 
 
 1. `owner` matches the correct Program ID, and
@@ -157,7 +153,7 @@ It is possible to skip owner checks for accounts owned by your own program when 
 
 This is because attempting to modify memory that your program doesn't own will case the Solana runtime will throw a `InstructionError::PrivilegeEscalation` error, causing your transaction to fail. By virtue of this, if we are careful with our assumptions, it is possible to skip these checks to save on compute units.
 
-#### 3.2 Uninitialized Accounts
+### Initialization Checks
 
 When initializing new accounts, the checks we need to perform are actually quite different, as we are instead checking that the account is not already initialized.
 
