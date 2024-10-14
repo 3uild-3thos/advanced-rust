@@ -155,7 +155,7 @@ This is because attempting to modify memory that your program doesn't own will c
 
 ### Initialization Checks
 
-When initializing new accounts, we need to make sure that the account is not already initialized. Naively, we may initially think that checking the lamports balance of the account is non-zero would be sufficient, however as Solana allows us to send lamports to any account we want, this is unreliable, as an attacker could sabotage your program by figuring out your PDA seeds and sending lamports to uninitialized accounts. Instead, we need to check the
+When initializing new accounts, we need to make sure that the account is not already initialized. Naively, we may initially think that checking the lamports balance of the account is non-zero would be sufficient, however as Solana allows us to send lamports to any account we want, this is unreliable, as an attacker could sabotage your program by figuring out your PDA seeds and sending lamports to uninitialized accounts. Instead, we need to check the `owner` of the account, as the only way for a program other than the `System Program` to take ownership of th.
 
 #### Anchor
 
