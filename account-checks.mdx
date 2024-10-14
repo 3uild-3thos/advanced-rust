@@ -149,11 +149,11 @@ let escrow_data = Escrow::try_unpack(data)?;
 
 #### 3.2 Uninitialized Accounts
 
-Uninitialized accounts require us to cehck that the account is not already initialized. This means checking that the account:
+Uninitialized accounts require us to check that the account is not already initialized. This means checking that the account:
 
 1. `owner` is the `System Program`
 2. `data` is uninitialized
-3. is a `signer`
+3. is a `signer` of the CPI to the System Program
 
 #### Anchor
 
