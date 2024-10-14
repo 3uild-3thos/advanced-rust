@@ -75,12 +75,15 @@ assert_eq!(&sysvar::ID, &rent.owner);
 assert_eq!(&sysvar::rent::ID, &rent.key);
 ```
 
+#### Optimizations
+
 In practice, the Sysvar program owned check can be omitted, as knowing the account has the correct address already enables us to infer that it belongs to the Sysvar program.
 
 When prioritizing security, it is often best to access Sysvar data directly from the sysvar syscalls instead of passing in an account, as this closes off all Sysvar-account-based attack vectors.
 
-**Advanced:**
-When prioritizing for performance, it is typically preferable to pass in Sysvar accounts instead of invoking the syscalls. This is because the base CU cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint, passing in the account can actually achieve the same result for `~10CUs`.
+**Advanced**
+
+ When prioritizing for performance, it is typically preferable to pass in Sysvar accounts instead of invoking the syscalls. This is because the base CU cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint, passing in the account can actually achieve the same result for `~10CUs`.
 
 #### 3. Owner Checks
 
