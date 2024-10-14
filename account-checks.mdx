@@ -156,11 +156,11 @@ This is because attempting to modify memory that your program doesn't own will c
 
 When dealing with the concept of permissions in our programs, we typically rely upon cryptogrpahic proofs of identity. While Soalana supports several cryptographic signature schemes, such as ECDSA, Schnorr or RSA, the most common way of handling this is to simply use the signer constraint on an account.
 
-If we fail to do Signer checks, it e
+If we fail to do Signer checks, it may allow attackers to achieve unauthorized access to sensitive accounts such as vaults or escrows controlled by our program.
 
 #### Anchor Example
 
-In anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID of your own program as declared in `lib.rs`, or alternatively the Program ID of any program you are importing via `Cargo.toml`.
+In Anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID of your own program as declared in `lib.rs`, or alternatively the Program ID of any program you are importing via `Cargo.toml`.
 
 ```rs
 #[derive(Accounts)]
