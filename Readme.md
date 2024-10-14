@@ -30,7 +30,7 @@ Course structure and key competencies are as follows:
    3. NoStd entrypoint and CPI (Competition)
 5. Extreme optimization
    1. Writing a custom entrypoint
-   2. Rosetta Code (Unsafe Rust/C/Assembly optimization
+   2. Rosetta Code (Unsafe Rust/C/Assembly) optimization
    3. Present your own non-standard optimization
 
 ### Week 1 - Native Rust Vault
