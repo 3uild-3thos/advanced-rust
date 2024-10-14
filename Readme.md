@@ -17,7 +17,7 @@ The course will run **3 days a week** for a duration of **5 weeks** in total. Th
 2. Native Rust Escrow
    1. Native Rust Vault Program (2/2)
    2. Native Rust Escrow Program (2/2)
-   3. Optimizing
+   3. Optimizing an Escrow
 3. Native Rust AMM
 4. Writing our own frameworks and libraries
 5. Extreme optimization
