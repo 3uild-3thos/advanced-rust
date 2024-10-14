@@ -26,9 +26,9 @@ Course structure and key competencies are as follows:
    3. Optimizing an AMM
 4. Non-standard libraries
    1. Introduction to unsafe Rust
-   2. Solana Program is TOO slow
-   3. Nostd-entrypoint and CLIs
-   4. 
+   2. NoStd entrypoint and CPI
+   3. Solana Program is TOO slow
+   4. Nostd-entrypoint and CLIs
    5. Inline assembly
 5. Extreme optimization
    1. Writing a custom entrypoint
