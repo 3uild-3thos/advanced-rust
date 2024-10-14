@@ -149,11 +149,7 @@ let escrow_data = Escrow::try_unpack(data)?;
 
 #### 3.2 Uninitialized Accounts
 
-Uninitialized accounts require us to check that the account is not already initialized. This means checking that the account:
-
-1. `owner` is the `System Program`
-2. `data` is uninitialized
-3. is a `signer` of the CPI to the System Program
+Uninitialized accounts require us to check that the account is not already initialized.
 
 #### Anchor
 
@@ -170,6 +166,12 @@ struct Transfer<'info> {
     escrow: Account<'info, Escrow>
 }
 ```
+
+Under the hood, these constraints are checking that the account:
+
+1. `owner` is the `System Program`
+2. `data` is uninitialized
+3. is a `signer` of the CPI to the System Program
 
 When initializing new accounts, the checks we need to perform are actually quite different. 
 
