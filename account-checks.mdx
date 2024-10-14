@@ -15,7 +15,7 @@ Account checks are one of the most important important things we must consider t
 
 When invoking others programs in your program, such as the `TokenProgram`, you must ensure that the account passed in for each program has the desired address. Failing to do so enables attackers to inject a program of another address with a conforming API that could be used to steal your funds, or break other constraints that depend upon the correct address of this program such as the `AssociatedTokenProgram`.
 
-In anchor, we solve for these checks with Program&lt;T&gt;. Below is an example using it in conjunction with the `Token` program type:
+In anchor, we solve for these checks with `Program<T>`. Below is an example using it in conjunction with the `Token` program type:
 
 ```rs
 #[derive(Accounts)]
