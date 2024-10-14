@@ -97,6 +97,10 @@ Contrarily, when prioritizing for peak performance, if your instruction is not b
 
 ### 3. Owner Checks
 
+There are two types of owner checks we should perform depending upon whether an account is already initialized or not.
+
+#### Initialized Accounts
+
 When reading from/writing to existing accounts, it is important to check that the account 
 
 1. `owner` matches the correct Program ID, and
