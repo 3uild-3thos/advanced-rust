@@ -152,9 +152,7 @@ It is possible to skip owner checks for accounts owned by your own program when 
 1. mutating the `lamports` balance of the account without CPI
 2. mutating the `data` of the account in your program
 
-This is because attempting to modify memory that your program doesn't own will case the Solana runtime will throw a `InstructionError::PrivilegeEscalation` error, causing your transaction to fail. 
-
-asdasd
+This is because attempting to modify memory that your program doesn't own will case the Solana runtime will throw a `InstructionError::PrivilegeEscalation` error, causing your transaction to fail. By virtue of this, if we are careful with our assumptions, it is possible to skip these checks to save .
 
 4. Signer Checks
 
