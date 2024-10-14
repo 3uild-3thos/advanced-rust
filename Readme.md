@@ -44,18 +44,15 @@ In this module, we will dive deep into:
 
 The final outcome of this week is that all students will successfully build and test their own native Rust vault program, enabling them to safely deposit and withdraw lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
-##### Key competencies:
+### Week 2 - Escrow
 
-1.1 - Account checks, serialization and security
-1.2 - Native Rust vault program
-1.3 - Program testing in Native Rust
+In this module, we will dive deep into:
 
-3. We will be delving into
+- Mastering account checks
+- Native Rust program security
+- Serialization and discriminators
+- Program structure  
 
-### Smart contracts
+The final outcome of this week is that all students will successfully build and test their own native Rust vault program, enabling them to safely deposit and withdraw lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
-In the Smart Contracts portion of the course, we will be aiming to achieve the following competencies:
-
-1.1 - Create a secure Native Rust vault program.
-
-1.2 -
+##### 
