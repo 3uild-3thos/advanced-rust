@@ -30,7 +30,8 @@ Course structure and key competencies are as follows:
    3. NoStd entrypoint and CPI
 5. Extreme optimization
    1. Writing a custom entrypoint
-   2. Writing a vault in assembly
+   2. Assembly vault
+   3. Present your 
 
 #### Week 1 - Native Rust Vault
 
