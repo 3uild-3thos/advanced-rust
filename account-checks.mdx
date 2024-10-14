@@ -118,11 +118,11 @@ struct Transfer<'info> {
 In this example:
 
 - `Account<T>` ensures type `T` implements has the correct `owner` and `discriminator`, then deserializes the account data
-- `Token` implements the `Owner` and `AccountDeserialize` traits, enabling the \`Account&lt;T&gt;
+- `Token` implements the `Owner` and `AccountDeserialize` traits, enabling the `Account<T>` checks to work.
 
 #### Native Rust Example
 
-In Native Rust, we would typically handle those checks in the body of our instruction like this:
+In Native Rust, we would handle these checks in the body of our instruction like so:
 
 ```rs
 assert!(&token_program.executable);
