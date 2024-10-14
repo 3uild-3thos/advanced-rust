@@ -105,6 +105,31 @@ When reading from/writing to accounts, it is important to check that the account
 
 By knowing that the account is created by the correct program, and that the data length or discriminator is as expected, we can know that the account is genuine. Failure to perform this check may enable an attacked to inject malicious accounts that
 
+#### Anchor Example
+
+In anchor, we solve for these checks with [Program&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). Below is an example using it in conjunction with the `Token` program type:
+
+```rs
+#[derive(Accounts)]
+struct Transfer<'info> {
+    token_program: Account<'info, Token>
+}
+```
+
+In this example:
+
+- `Program<T>` ensures the account is executable, and
+- `Token` its address is equal to `TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA`
+
+#### Native Rust Example
+
+In Native Rust, we would typically handle those checks in the body of our instruction like this:
+
+```rs
+assert!(&token_program.executable);
+assert_eq!(&spl_token::ID, &token_program.key);
+```
+
 It is possible to skip owner checks for accounts owned by your own program when we are mutating their data or lamports, as if they do not belong to your program, the runtime will throw a privelege escalation error, causing your transaction to fail.
 
 4. Signer Checks
