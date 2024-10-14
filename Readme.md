@@ -19,11 +19,11 @@ Course structure and key competencies are as follows:
 2. Escrow
    1. Native Rust Vault Program (1/2)
    2. Native Rust Escrow Program (2/2)
-   3. Testing/ Benchmarking an Escrow
+   3. Testing/Benchmarking and breakouts
 3. AMM
    1. Native Rust AMM Programs (1/2)
    2. Native Rust AMM Program (2/2)
-   3. Testing and Optimizing an AMM
+   3. Testing/Benchmarking and breakouts
 4. Unsafe Rust and Non-standard libraries
    1. Introduction to unsafe Rust
    2. Replacing Solana-Program
