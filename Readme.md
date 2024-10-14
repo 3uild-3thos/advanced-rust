@@ -2,8 +2,8 @@
 
 Welcome to Turbin3's Advanced Rust program. This program aims to facilite your growth and learning as a Solana developer branching out from non-native Rust developer background. By the end of the program, each participant should feel confident in their ability to:
 
-1. Write, test and deploy 3 native Rust programs
-2. Optimize programs for space and CU savings
+1. Write, test and deploy native Rust programs
+2. Optimize programs for CU and space savings
 3. Create their own libraries and abstractions to achieve both of these points
 
 ### Course Structure
