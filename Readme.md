@@ -8,7 +8,7 @@ Welcome to Turbin3's Advanced Rust program. This program aims to facilite your g
 
 ### Course Structure
 
-The course will run for a duration of **5 weeks** in total. The course is split into two parts: Wri
+The course will run for a duration of **5 weeks** in total. The course is split into two parts: **Writing contracts**, and **optimizing contracts**.
 
 1. Native Rust Vault
 2. Native Rust Escrow
@@ -18,7 +18,7 @@ The course will run for a duration of **5 weeks** in total. The course is split 
 
 #### Week 1 - Native Rust Vault
 
-Students will be required to make their own native Rust vault program capable of depositing and withdrawing lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
+In this m will be required to make their own native Rust vault program capable of depositing and withdrawing lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
 ##### Key competencies achieved:
 
