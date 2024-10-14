@@ -125,12 +125,14 @@ In this example:
 In Native Rust, we would handle these checks in the body of our instruction like so:
 
 ```rs
+// Create an account discriminator for Escrow type
 const ESCROW_DISCRIMINATOR: u8 = 1;
 
+// Split the discriminator out from
 let (discriminator, data) = escrow.data.borrow().split_first();
 assert_eq!(&ESCROW_DISCRIMINATOR, discriminator);
 assert_eq!(&crate::ID, &escrow.owner);
-let escrow_data = Escrow::unpack(data);
+let escrow_data = Escrow::try_unpack(data)?;
 ```
 
 It is possible to skip owner checks for accounts owned by your own program when we are mutating their data or lamports, as if they do not belong to your program, the runtime will throw a privelege escalation error, causing your transaction to fail.
