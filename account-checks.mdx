@@ -83,7 +83,7 @@ When prioritizing security, it is often best to access Sysvar data directly from
 
 **Advanced**
 
- When prioritizing for performance, it is typically preferable to pass in Sysvar accounts instead of invoking the syscalls. This is because the base CU cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint, passing in the account can actually achieve the same result for `~10CUs`.
+When prioritizing for peak performance, if you are not constrained by the number of accounts, it will  preferable to pass in Sysvar accounts instead of invoking the syscalls. This is because the base CU cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint, passing in the account can actually achieve the same result for `~10CUs`.
 
 #### 3. Owner Checks
 
