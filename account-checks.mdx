@@ -81,7 +81,9 @@ In practice, the Sysvar program owned check can be omitted, as knowing the accou
 
 If security is your main concern, it is often best to access Sysvar data directly from the sysvar syscalls instead of passing in an account, as this closes off all possible account-based attack vectors. To get the sysvar from the syscall directly:
 
-\`\`
+```rs
+let clock = Clock::get()?;
+```
 
 **Advanced Optimizations**
 
