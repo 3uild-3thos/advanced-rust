@@ -111,7 +111,7 @@ In anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/
 ```rs
 #[derive(Accounts)]
 struct Transfer<'info> {
-    token_program: Account<'info, Token>
+    escrow: Account<'info, Escrow>
 }
 ```
 
@@ -125,7 +125,8 @@ In this example:
 In Native Rust, we would handle these checks in the body of our instruction like so:
 
 ```rs
-assert_eq!(&spl_token::ID, &accoun.owner);
+assert_eq!(&crate::ID, &escrow.owner);
+assert_eq!(&crate::ID, &escrow.data.);
 ```
 
 It is possible to skip owner checks for accounts owned by your own program when we are mutating their data or lamports, as if they do not belong to your program, the runtime will throw a privelege escalation error, causing your transaction to fail.
