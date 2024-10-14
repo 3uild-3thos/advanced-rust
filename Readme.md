@@ -16,4 +16,8 @@ The course will be structured into two main parts:
 
 ### Smart contracts
 
-In the Smart Contracts portion of the course, we will be aiming to achieve the following compete
+In the Smart Contracts portion of the course, we will be aiming to achieve the following competencies:
+
+1.1 Create a secure Native Rust vault program.
+
+1.2 - 
