@@ -81,9 +81,9 @@ In practice, the Sysvar program owned check can be omitted, as knowing the accou
 
 When prioritizing security, it is often best to access Sysvar data directly from the sysvar syscalls instead of passing in an account, as this closes off all Sysvar-account-based attack vectors.
 
-**Advanced**
+**Advanced** 
 
-When prioritizing for peak performance, if you are not constrained by the number of accounts, it will  preferable to pass in Sysvar accounts instead of invoking the syscalls. This is because the base CU cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint, passing in the account can actually achieve the same result for `~10CUs`.
+When prioritizing for peak performance, if you are not constrained by the number of accounts, it will typically be preferable to pass in Sysvar accounts instead of invoking the Sysvar syscalls. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint, passing in the account can actually achieve the same result for `~10CUs`.
 
 #### 3. Owner Checks
 
