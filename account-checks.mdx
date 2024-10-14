@@ -106,7 +106,7 @@ By knowing that the account is created by the correct program, and that the data
 
 #### Anchor Example
 
-In anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID if  your `lib.rs` for your own Account types, or the Program ID of any program you are importing in your `Cargo.toml`.
+In anchor, we solve for these checks with [Account&lt;T&gt;](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID of your own program as declared in `lib.rs`, or alternatively the Program ID of any program you are importing via `Cargo.toml`.
 
 ```rs
 #[derive(Accounts)]
