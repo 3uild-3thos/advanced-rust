@@ -10,7 +10,9 @@ Welcome to Turbin3's Advanced Rust program. The outcomes of this program are tha
 
 The course will run for a duration of **5 weeks** in total, and is structured around achieving the following competencies:
 
-1. Native Rust Vault
+1. Vault Program
+
+   Students will be required to make their own Native Rust vault program capable of storing 
 
    1.1 - Mastering account checks
    1.2 - Your first Native Rust vault
