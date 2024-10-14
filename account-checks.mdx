@@ -32,7 +32,7 @@ In this example:
 In Native Rust, we would handle that like so:
 
 ```rs
-assert!(&token_program.is_executable());
+assert!(&token_program.executable;
 assert_eq!(&spl_token::ID, &token_program.key);
 ```
 
@@ -52,7 +52,7 @@ In anchor, we solve for these checks with `Sysvar<T>`. Below is an example using
 
 ```rs
 #[derive(Accounts)]
-struct Initialize {
+struct Initialize<'info> {
     pub rent: Sysvar<'info, Rent>,
 }
 ```
