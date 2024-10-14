@@ -43,9 +43,7 @@ In this module, we will dive deep into:
 - Program structure 
 - Testing a Native Rust program
 
-The final outcome of this week is that all students will successfully build and test their own native Rust vault program. The vault program be be able to:
-
-- Deposit and withdraw from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
+The final outcome of this week is that all students will successfully build and test their own native Rust vault program. The vault program be be able to deposit and withdraw from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
 ### Week 2 - Escrow
 
