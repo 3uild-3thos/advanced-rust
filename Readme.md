@@ -6,6 +6,10 @@ Welcome to Turbin3's Advanced Rust program. The outcomes of this program are tha
 2. Optimize programs for space and CU savings
 3. Create their own libraries and abstractions to achieve both of these points
 
-### Course 
+### Course Structure
 
-We will be delving into
+The course will be structured into two main parts:
+
+1. Writing Native Rust programs
+
+2. We will be delving into
