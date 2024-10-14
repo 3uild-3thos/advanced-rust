@@ -36,7 +36,9 @@ assert!(&token_program.executable);
 assert_eq!(&spl_token::ID, &token_program.key);
 ```
 
- the Program ID is known, it is possible to omit the executable check, as checking for the correct Program ID already enables us to know that it is executable. There are also runtime errors that will occur when attempting to execute instructions against a non-executable account.
+##### Optimizations
+
+When the desired Program ID is known, it is generally possible to omit the executable check, as having the correct Program ID already enables us to know that it is executable. There are also runtime errors that will occur when attempting to execute instructions against a non-executable account.
 
 #### 2. Sysvar Checks 
 
