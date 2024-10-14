@@ -12,15 +12,16 @@ The course will run **3 days a week** for a duration of **5 weeks** in total. Th
 
 Course structure and key competencies are as follows:
 
-1. Native Rust Vault
+1. Introduction and Vault
    1. Account checks, serialization, discriminators and security
    2. Native Rust Vault program
    3. Testing Native Rust programs in Rust and Typescript
-2. Native Rust Escrow
+2. Escrow
    1. Native Rust Vault Program (2/2)
    2. Native Rust Escrow Program (2/2)
    3. Optimizing an Escrow
-3. Native Rust AMM
+3. AMM
+   1. Native Rust AMM
 4. Writing our own frameworks and libraries
 5. Extreme optimization
 
