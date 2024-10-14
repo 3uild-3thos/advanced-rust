@@ -128,8 +128,12 @@ In Native Rust, we would handle these checks in the body of our instruction like
 // Create an account discriminator for Escrow type
 const ESCROW_DISCRIMINATOR: u8 = 1;
 
-// Split the discriminator out from
-let (discriminator, data) = escrow.data.borrow().split_first();
+// Split the discriminator out from account data
+let (discriminator, data) = escrow.data.borrow()
+	.split_first()
+	.ok_or(ProgramError::InvalidInstructionData)?;
+
+// Check the discriminator
 assert_eq!(&ESCROW_DISCRIMINATOR, discriminator);
 assert_eq!(&crate::ID, &escrow.owner);
 let escrow_data = Escrow::try_unpack(data)?;
