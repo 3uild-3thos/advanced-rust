@@ -1,8 +1,8 @@
 # Turbin3 Advanced Rust
 
-Welcome to Turbin3's Advanced Rust program. This program aims to facilite your growth and learning as a Solana developer branching out from non-nativoutcomes of this program are that each participant will feel confident in their ability to:
+Welcome to Turbin3's Advanced Rust program. This program aims to facilite your growth and learning as a Solana developer branching out from non-native Rust developer background. By the end of the program, each participant should feel confident in their ability to:
 
-1. Create Native Rust programs, and
+1. Structure, write and test Native Rust programs,
 2. Optimize programs for space and CU savings
 3. Create their own libraries and abstractions to achieve both of these points
 
