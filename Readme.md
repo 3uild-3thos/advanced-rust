@@ -10,7 +10,7 @@ Welcome to Turbin3's Advanced Rust program. This program aims to facilite your g
 
 The course will run for a duration of **5 weeks** in total, and is structured around achieving the following competencies:
 
-##### Week One
+#### Week One - Native Rust Vault
 
 Students will be required to make their own native Rust vault program capable of depositing and withdrawing lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
