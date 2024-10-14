@@ -8,12 +8,13 @@ Welcome to Turbin3's Advanced Rust program. The outcomes of this program are tha
 
 ### Course Structure
 
-The course will be structured as follows:
+The course is structured around achieving the following :
 
 1. Native Rust Vault
 
-   1. Native Rust smart contract structure
-   2. How to choose a 
+   1. Mastering account checks.
+   2. Native Rust smart contract structure
+   3. How to choose a 
 
 2. We will be delving into
 
