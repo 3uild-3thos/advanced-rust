@@ -125,8 +125,10 @@ In this example:
 In Native Rust, we would handle these checks in the body of our instruction like so:
 
 ```rs
+const ESCROW_DISCRIMINATOR: u8 = 1;
+
 assert_eq!(&crate::ID, &escrow.owner);
-assert_eq!(&crate::ID, &escrow.data.);
+assert_eq!(&ESCROW_DISCRIMINATOR, &escrow.data[0);
 ```
 
 It is possible to skip owner checks for accounts owned by your own program when we are mutating their data or lamports, as if they do not belong to your program, the runtime will throw a privelege escalation error, causing your transaction to fail.
