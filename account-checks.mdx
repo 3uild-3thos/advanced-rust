@@ -81,7 +81,7 @@ assert_eq!(&sysvar::rent::ID, &rent.key);
 
 #### Optimizations
 
-In practice, the Sysvar program owned check can be omitted, as knowing the account has the correct address already enables us to infer that it belongs to the Sysvar program.
+In practice, the Sysvar program owner check can be omitted, as knowing the account has the correct address already enables us to infer that it belongs to the Sysvar program.
 
 If security is your main concern, it is often best to access Sysvar data directly from the sysvar syscalls instead of passing in an account, like so:
 
