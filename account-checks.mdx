@@ -9,7 +9,7 @@ Here is a brief checklist you run through every time you write a Native Rust pro
 - [ ] Program ID Checks
 - [ ] Sysvar Checks
 - [ ] Owner Checks
-- [ ] Initia
+- [ ] Initialization Checks
 - [ ] Signer Checks
 - [ ] Mint Checks
 - [ ] PDA Checks
@@ -17,7 +17,7 @@ Here is a brief checklist you run through every time you write a Native Rust pro
 
 There are many other things you will likely need to consider to fully secure your program, but these are the most common footguns you will come up against. Having a checklist is a great way to make sure you have taken all of these things into account. Upon completing this checkilst, we can then look to optimize for CUs by omitting some of the more superfluous checks.
 
-### 1. Program ID Checks
+### Program ID Checks
 
 When invoking others programs in your program, such as the `TokenProgram`, you must ensure that the account passed in for each program has the desired address. Failing to do so enables attackers to inject a program of another address with a conforming API that could be used to steal your funds, or break other constraints that depend upon the correct address of this program such as the `AssociatedTokenProgram`.
 
@@ -50,7 +50,7 @@ assert_eq!(&spl_token::ID, &token_program.key);
 
 When the desired Program ID is known, it is generally possible to omit the executable check, as having the correct Program ID already enables us to know that it is executable. There are also runtime errors that will occur when attempting to execute instructions against a non-executable account.
 
-### 2. Sysvar Checks 
+### Sysvar Checks 
 
 When using Sysvar accounts, we need to check that they:
 
@@ -96,7 +96,7 @@ Relying upon the syscall enables us to be sure that we have closed off all possi
 
 Contrarily, when prioritizing for peak performance, if your instruction is not bound by instruction data size, it can actually be more efficient to pass in Sysvar accounts than to invoke the Sysvar syscalls. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for roughly `10CUs`.
 
-### 3. Owner Checks
+### Owner Checks
 
 There are two types of owner checks we should perform depending upon whether an account is already initialized or not.
 
