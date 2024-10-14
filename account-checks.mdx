@@ -145,7 +145,7 @@ let escrow_data = Escrow::try_unpack(data)?;
 
 #### Uninitialized Accounts
 
-It is possible to skip owner checks for accounts owned by your own program when 
+When initializing new accounts, the checks we need to perform are actually quite different. 
 
 #### Optimizations
 
