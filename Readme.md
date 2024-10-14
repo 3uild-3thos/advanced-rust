@@ -40,15 +40,16 @@ In this module, we will dive deep into:
 - Mastering account checks
 - Native Rust program security
 - Serialization and discriminators
-- Program structure  
+- Program structure 
+- Testing a Native Rust program
 
 The final outcome of this week is that all students will successfully build and test their own native Rust vault program, enabling them to safely deposit and withdraw lamports from a program-controlled vault account via PDA signing of an account derived from the depositor's signing address.
 
 ### Week 2 - Escrow
 
-In this module, we will dive deep into:
+In this module, we will look at:
 
-- Native Rust program security
+- Writing an Escrow in Native Rust program security
 - Serialization and discriminators
 - Program structure  
 
