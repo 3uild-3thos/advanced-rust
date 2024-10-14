@@ -31,7 +31,7 @@ Course structure and key competencies are as follows:
 5. Extreme optimization
    1. Writing a custom entrypoint
    2. Assembly optimization
-   3. Present your own 
+   3.  Present your own non-standard library
 
 #### Week 1 - Native Rust Vault
 
