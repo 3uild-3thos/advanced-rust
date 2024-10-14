@@ -143,6 +143,10 @@ assert_eq!(&crate::ID, &escrow.owner);
 let escrow_data = Escrow::try_unpack(data)?;
 ```
 
+#### Uninitialized Accounts
+
+It is possible to skip owner checks for accounts owned by your own program when 
+
 #### Optimizations
 
 It is possible to skip owner checks for accounts owned by your own program when you are either:
