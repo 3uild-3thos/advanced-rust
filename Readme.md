@@ -4,7 +4,7 @@ Welcome to Turbin3's Advanced Rust program. This program aims to facilite your g
 
 1. Write, test and deploy native Rust programs
 2. Optimize programs for CU and space savings
-3. Create their own libraries and abstractions to achieve both of these points
+3. Create their own libraries and abstractions to achieve both of these outcomes
 
 ### Course Structure
 
