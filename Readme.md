@@ -8,7 +8,7 @@ Welcome to Turbin3's Advanced Rust program. This program aims to facilite your g
 
 ### Course Structure
 
-The course will run for a duration of **5 weeks** in total. The course is split into two parts: **Writing contracts**, and **optimizing contracts**. The breakdown of
+The course will run **3 days a week** for a duration of **5 weeks** in total. The course is split into two parts: **Writing contracts**, and **optimizing contracts**. The course structure and key competencies required 
 
 1. Native Rust Vault
 2. Native Rust Escrow
