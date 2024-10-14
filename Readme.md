@@ -21,8 +21,11 @@ Course structure and key competencies are as follows:
    2. Native Rust Escrow Program (2/2)
    3. Optimizing an Escrow
 3. AMM
-   1. Native Rust AMM
+   1. Native Rust AMM Programs (1/2)
+   2. Native Rust AMM Program (2/2)
+   3. Optimizing an AMM
 4. Writing our own frameworks and libraries
+   1. 
 5. Extreme optimization
 
 #### Week 1 - Native Rust Vault
