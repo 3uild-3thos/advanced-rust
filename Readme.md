@@ -16,8 +16,7 @@ The course will run for a duration of **5 weeks** in total. The course is struct
 1. Native Rust Vault
 2. Native Rust Escrow
 3. Native Rust AMM
-4. Replacing Solana-Program
-5. Writing our own 
+4. Writing our own frameworks and libraries
 
 #### Week 1 - Native Rust Vault
 
