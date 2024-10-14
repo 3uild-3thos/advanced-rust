@@ -12,9 +12,10 @@ The course will run **3 days a week** for a duration of **5 weeks** in total. Th
 
 1. Native Rust Vault
    1. Account checks, serialization, discriminators and security
-   2. Native Rust escrow program
-   3. Testing Native Rust p
+   2. Native Rust Vault program
+   3. Testing Native Rust programs in Rust and Typescript
 2. Native Rust Escrow
+   1. Native Rust Vault 
 3. Native Rust AMM
 4. Writing our own frameworks and libraries
 5. Extreme optimization
