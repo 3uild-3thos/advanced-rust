@@ -8,7 +8,12 @@ Welcome to Turbin3's Advanced Rust program. This program aims to facilite your g
 
 ### Course Structure
 
-The course will run for a duration of **5 weeks** in total, and is structured around achieving the following competencies:
+The course will run for a duration of **5 weeks** in total. The course is structured as follows:
+
+\
+1. Building a vault
+
+1. Native R
 
 #### Week 1 - Native Rust Vault
 
