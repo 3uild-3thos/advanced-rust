@@ -13,3 +13,7 @@ The course will be structured into two main parts:
 1. Writing Native Rust programs
 
 2. We will be delving into
+
+### Smart contracts
+
+In the Smart Contracts portion of the course, we will be aiming to achieve the following compete
