@@ -12,8 +12,8 @@ The course will be structured as follows:
 
 1. Native Rust Vault
 
-   1. Smart contract structure
-   2. Dese
+   1. Native Rust smart contract structure
+   2. How to choose a 
 
 2. We will be delving into
 
