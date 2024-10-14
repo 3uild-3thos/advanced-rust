@@ -48,7 +48,6 @@ The final outcome of this week is that all students will successfully build and 
 
 In this module, we will dive deep into:
 
-- Mastering account checks
 - Native Rust program security
 - Serialization and discriminators
 - Program structure  
