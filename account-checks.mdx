@@ -99,7 +99,7 @@ Contrarily, when prioritizing for peak performance, if your instruction is not b
 
 There are two types of owner checks we should perform depending upon whether an account is already initialized or not.
 
-#### Initialized Accounts
+#### 3.1 Initialized Accounts
 
 When reading from/writing to existing accounts, it is important to check that the account 
 
@@ -147,7 +147,9 @@ assert_eq!(&crate::ID, &escrow.owner);
 let escrow_data = Escrow::try_unpack(data)?;
 ```
 
-#### Uninitialized Accounts
+#### 3.2 Uninitialized Accounts
+
+U
 
 When initializing new accounts, the checks we need to perform are actually quite different. 
 
