@@ -25,9 +25,10 @@ Course structure and key competencies are as follows:
    2. Native Rust AMM Program (2/2)
    3. Optimizing an AMM
 4. Non-standard libraries
-   1. Nostd-entrypoint and Pinocchio
-   2. Optimi
-   3. Inline assembly
+   1. Why Solana Program is too slow
+   2. Nostd-entrypoint and Pinocchio
+   3. 
+   4. Inline assembly
 5. Extreme optimization
    1. Writing a custom entrypoint
    2. Writing a vault in assembly
