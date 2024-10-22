@@ -222,6 +222,6 @@ In this example:
 In Native Rust, we might handle these checks like so:
 
 ```rs
-	assert!(system_program::check_id(system_program.key));
-	assert!(signer.is_signer && signer.owner == system_program.key);
+assert!(system_program::check_id(system_program.key));
+assert!(signer.is_signer && signer.owner == system_program.key);
 ```
