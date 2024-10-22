@@ -93,8 +93,8 @@ let clock = Clock::get()?;
 Relying upon the syscall enables us to be sure that we have closed off all possible account-based attack vectors for our sysvar variables.
 
 **Extreme Optimizations**
-Relying on syscalls also allow us to send less data to the chain, as we just have to reference the syscall in our program, instead of passing in the account.
-Contrarily, when prioritizing for peak performance, if your instruction is not bound by instruction data size, it can actually be more efficient to pass in Sysvar accounts than to invoke the Sysvar syscalls. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for roughly `10CUs`.
+
+Relying on syscalls allow us to send less data to the chain, as we just have to reference the syscall in our program, instead of passing in the account. Contrarily, when prioritizing for peak performance, if you are not bound by instruction data, it can actually be more efficient to pass in Sysvar accounts than to invoke the Sysvar syscalls. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for roughly `10CUs`.
 
 The decision of what to optimize and when depends on the purpose of your program, and should be carefully considered at each decision step.
 
@@ -194,6 +194,14 @@ In Native Rust, we would do it like:
 assert!(escrow.is_writable && escrow.data_is_empty() && escrow.owner != &crate::ID);
 ```
 
+# Optimizations
+
+If the account is not mutable, the system program will not allow you to write to it, and by knowing that the account does not belong to your program, we can know that either it's data is uninitialized, or it belongs to another program and thus we are unable to write to it. Therefore, in practice it is enough to simply know that the account does not belong to your program:
+
+```rs
+assert!(escrow.owner != &crate::ID);
+```
+
 #### 
 
 ### Signer Checks
@@ -225,3 +233,25 @@ In Native Rust, we might handle these checks like so:
 assert!(system_program::check_id(system_program.key));
 assert!(signer.is_signer && signer.owner == system_program.key);
 ```
+
+# Mint Checks
+
+Make sure your token accounts have the correct mint address. Failure to constraint your mints could result in loss of funds through a malicious mint account injection.
+
+# PDA Checks
+
+- Pick good seeds
+- Make sure your seeds match
+
+#### Optimizations
+
+- Save your bumps for use with PDA signing and/or `sol_create_program_address` instead of `sol_try_find_program_address` where possible
+- Consider using `sol_sha256` instead of `sol_create_program_address` in situations where it not necessary to check if the address is off-curve
+
+# Close Account Checks
+
+- Remove all lamports
+- Reassign data length to zero
+- Set owner to System Program
+
+Failure to do so may result in an account reanimation attack.
