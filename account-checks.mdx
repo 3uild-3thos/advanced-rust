@@ -93,8 +93,10 @@ let clock = Clock::get()?;
 Relying upon the syscall enables us to be sure that we have closed off all possible account-based attack vectors for our sysvar variables.
 
 **Extreme Optimizations**
-
+Relying on syscalls also allow us to send less data to the chain, as we just have to reference the syscall in our program, instead of passing in the account.
 Contrarily, when prioritizing for peak performance, if your instruction is not bound by instruction data size, it can actually be more efficient to pass in Sysvar accounts than to invoke the Sysvar syscalls. This is because the base cost of invoking Sysvar syscalls is `100 CUs`, however when paired with an efficient entrypoint like [nostd-entrypoint](https://github.com/cavemanloverboy/solana-nostd-entrypoint) or [pinocchio](https://github.com/febo/pinocchio), passing in the account can actually achieve the same result for roughly `10CUs`.
+
+The decision of what to optimize and when depends on the purpose of your program, and should be carefully considered at each decision step.
 
 ### Owner Checks
 
@@ -103,7 +105,7 @@ When reading from/writing to existing accounts, it is important to check that th
 1. `owner` matches the correct Program ID, and
 2. is of the correct type - typically handled by checking `data` length / lamports, or using an account discriminator
 
-By knowing that the account is created by the correct program, and that the data length, lamports or discriminator is as expected, we can know that the account is genuine. Failure to perform this check may enable an attacked to inject malicious accounts that cause undefined behavior, possibly causing loss of funds.
+By knowing that the account is created by the correct program, and that the data length or discriminator is as expected, we can know that the account is genuine. Failure to perform this check may enable an attacked to inject malicious accounts that cause undefined behavior, possibly causing loss of funds.
 
 #### Anchor Example
 
@@ -182,7 +184,7 @@ Under the hood, this is checking that the account:
 1. `owner` is the `System Program`
 2. `data` is uninitialized
 
-It will then proceed to CPI into the `System Program` to initialize the account.
+It will then proceed to CPI into the `SystemProgram` to initialize the account.
 
 #### Native Rust
 
@@ -202,7 +204,7 @@ If we fail to do Signer checks, it may allow attackers to achieve unauthorized a
 
 #### Anchor Example
 
-In Anchor, we use [Signer](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30) to do these checks. It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID of your own program as declared in `lib.rs`, or alternatively the Program ID of any program you are importing via `Cargo.toml`.
+In Anchor, we use [Signer](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30) to do these checks.
 
 ```rs
 #[derive(Accounts)]
@@ -213,30 +215,13 @@ struct Transfer<'info> {
 
 In this example:
 
-- `Account<T>` ensures type `T` has the correct `owner` and `discriminator`, then deserializes the account data
-- `Token` implements the `Owner` and `AccountDeserialize` traits, enabling the `Account<T>` checks to work
+- `Signer<'a>` ensures that `Signer` has signed the transaction, and is owned by the `SystemProgram`
 
 #### Native Rust Example
 
-In Native Rust, we might handle these checks in the body of our instruction like so:
+In Native Rust, we might handle these checks like so:
 
 ```rs
-// Create an account discriminator for Escrow type
-const ESCROW_DISCRIMINATOR: u8 = 1;
-
-// Split the discriminator out from account data
-let (discriminator, data) = escrow.data.borrow()
-	.split_first()
-	.ok_or(ProgramError::InvalidInstructionData)?;
-
-// Check the discriminator
-assert_eq!(&ESCROW_DISCRIMINATOR, discriminator);
-
-// Ensure the Escrow account is owned by the current program
-assert_eq!(&crate::ID, &escrow.owner);
-
-// Deserialize data into Escrow struct
-let escrow_data = Escrow::try_unpack(data)?;
-
-assert!(maker.is_signer);
+	assert!(system_program::check_id(system_program.key));
+	assert!(signer.is_signer && signer.owner == system_program.key);
 ```
