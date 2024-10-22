@@ -101,9 +101,9 @@ Contrarily, when prioritizing for peak performance, if your instruction is not b
 When reading from/writing to existing accounts, it is important to check that the account 
 
 1. `owner` matches the correct Program ID, and
-2. is of the correct type - typically handled by checking `data` length, or using an account discriminator
+2. is of the correct type - typically handled by checking `data` length / lamports, or using an account discriminator
 
-By knowing that the account is created by the correct program, and that the data length or discriminator is as expected, we can know that the account is genuine. Failure to perform this check may enable an attacked to inject malicious accounts that
+By knowing that the account is created by the correct program, and that the data length, lamports or discriminator is as expected, we can know that the account is genuine. Failure to perform this check may enable an attacked to inject malicious accounts that cause undefined behavior, possibly causing loss of funds.
 
 #### Anchor Example
 
@@ -186,7 +186,11 @@ It will then proceed to CPI into the `System Program` to initialize the account.
 
 #### Native Rust
 
-In Native Rust, we would
+In Native Rust, we would do it like:
+
+```rs
+assert!(escrow.is_writable && escrow.data_is_empty() && escrow.owner != &crate::ID);
+```
 
 #### 
 
@@ -198,7 +202,7 @@ If we fail to do Signer checks, it may allow attackers to achieve unauthorized a
 
 #### Anchor Example
 
-In Anchor, we solve for these checks with [Signer](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30). It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID of your own program as declared in `lib.rs`, or alternatively the Program ID of any program you are importing via `Cargo.toml`.
+In Anchor, we use [Signer](https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/program.rs#L30) to do these checks. It takes in a generic type that implements the `Owner` trait which is typically automatically set to checked for `crate::ID` by the `#[account]` macro. This means Account will be automatically checking for the Program ID of your own program as declared in `lib.rs`, or alternatively the Program ID of any program you are importing via `Cargo.toml`.
 
 ```rs
 #[derive(Accounts)]
@@ -209,7 +213,7 @@ struct Transfer<'info> {
 
 In this example:
 
-- `Account<T>` ensures type `T` implements has the correct `owner` and `discriminator`, then deserializes the account data
+- `Account<T>` ensures type `T` has the correct `owner` and `discriminator`, then deserializes the account data
 - `Token` implements the `Owner` and `AccountDeserialize` traits, enabling the `Account<T>` checks to work
 
 #### Native Rust Example
@@ -233,8 +237,6 @@ assert_eq!(&crate::ID, &escrow.owner);
 
 // Deserialize data into Escrow struct
 let escrow_data = Escrow::try_unpack(data)?;
-```
 
-```rs
 assert!(maker.is_signer);
 ```
