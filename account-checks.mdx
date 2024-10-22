@@ -103,7 +103,7 @@ The decision of what to optimize and when depends on the purpose of your program
 When reading from/writing to existing accounts, it is important to check that the account 
 
 1. `owner` matches the correct Program ID, and
-2. is of the correct type - typically handled by checking `data` length / lamports, or using an account discriminator
+2. is of the correct type - typically handled by checking `data` length, or using an account discriminator
 
 By knowing that the account is created by the correct program, and that the data length or discriminator is as expected, we can know that the account is genuine. Failure to perform this check may enable an attacked to inject malicious accounts that cause undefined behavior, possibly causing loss of funds.
 
